@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ladybug_geometry.geometry2d.polyline module &#8212; ladybug geometry  documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ladybug_geometry.geometry2d.ray module" href="ladybug_geometry.geometry2d.ray.html" />
+    <link rel="prev" title="ladybug_geometry.geometry2d.polygon module" href="ladybug_geometry.geometry2d.polygon.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          ladybug geometry</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="ladybug_geometry.html">ladybug_geometry package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="ladybug_geometry.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="ladybug_geometry.geometry2d.html">ladybug_geometry.geometry2d package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="ladybug_geometry.geometry2d.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry2d.arc.html">ladybug_geometry.geometry2d.arc module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry2d.line.html">ladybug_geometry.geometry2d.line module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry2d.mesh.html">ladybug_geometry.geometry2d.mesh module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry2d.pointvector.html">ladybug_geometry.geometry2d.pointvector module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry2d.polygon.html">ladybug_geometry.geometry2d.polygon module</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">ladybug_geometry.geometry2d.polyline module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry2d.ray.html">ladybug_geometry.geometry2d.ray module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="ladybug_geometry.geometry2d.html#module-ladybug_geometry.geometry2d">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ladybug_geometry.geometry3d.html">ladybug_geometry.geometry3d package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ladybug_geometry.geometry3d.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry3d.arc.html">ladybug_geometry.geometry3d.arc module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry3d.cone.html">ladybug_geometry.geometry3d.cone module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry3d.cylinder.html">ladybug_geometry.geometry3d.cylinder module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry3d.face.html">ladybug_geometry.geometry3d.face module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry3d.line.html">ladybug_geometry.geometry3d.line module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry3d.mesh.html">ladybug_geometry.geometry3d.mesh module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry3d.plane.html">ladybug_geometry.geometry3d.plane module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry3d.pointvector.html">ladybug_geometry.geometry3d.pointvector module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry3d.polyface.html">ladybug_geometry.geometry3d.polyface module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry3d.polyline.html">ladybug_geometry.geometry3d.polyline module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry3d.ray.html">ladybug_geometry.geometry3d.ray module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry3d.sphere.html">ladybug_geometry.geometry3d.sphere module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="ladybug_geometry.geometry3d.html#module-ladybug_geometry.geometry3d">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ladybug_geometry.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ladybug_geometry.bounding.html">ladybug_geometry.bounding module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ladybug_geometry.intersection2d.html">ladybug_geometry.intersection2d module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ladybug_geometry.intersection3d.html">ladybug_geometry.intersection3d module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ladybug_geometry.html#module-ladybug_geometry">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="ladybug_geometry.html">ladybug_geometry package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="ladybug_geometry.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="ladybug_geometry.geometry2d.html">ladybug_geometry.geometry2d package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="ladybug_geometry.geometry2d.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry2d.arc.html">ladybug_geometry.geometry2d.arc module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry2d.line.html">ladybug_geometry.geometry2d.line module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry2d.mesh.html">ladybug_geometry.geometry2d.mesh module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry2d.pointvector.html">ladybug_geometry.geometry2d.pointvector module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry2d.polygon.html">ladybug_geometry.geometry2d.polygon module</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">ladybug_geometry.geometry2d.polyline module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry2d.ray.html">ladybug_geometry.geometry2d.ray module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="ladybug_geometry.geometry2d.html#module-ladybug_geometry.geometry2d">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ladybug_geometry.geometry3d.html">ladybug_geometry.geometry3d package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ladybug_geometry.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ladybug_geometry.html#module-ladybug_geometry">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="ladybug_geometry.geometry2d.polygon.html" title="Previous Chapter: ladybug_geometry.geometry2d.polygon module"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; ladybug_geome...</span>
+    </a>
+  </li>
+  <li>
+    <a href="ladybug_geometry.geometry2d.ray.html" title="Next Chapter: ladybug_geometry.geometry2d.ray module"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">ladybug_geome... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/ladybug_geometry.geometry2d.polyline.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="ladybug_geometry.html">ladybug_geometry package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="ladybug_geometry.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="ladybug_geometry.geometry2d.html">ladybug_geometry.geometry2d package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="ladybug_geometry.geometry2d.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry2d.arc.html">ladybug_geometry.geometry2d.arc module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry2d.line.html">ladybug_geometry.geometry2d.line module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry2d.mesh.html">ladybug_geometry.geometry2d.mesh module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry2d.pointvector.html">ladybug_geometry.geometry2d.pointvector module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry2d.polygon.html">ladybug_geometry.geometry2d.polygon module</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">ladybug_geometry.geometry2d.polyline module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_geometry.geometry2d.ray.html">ladybug_geometry.geometry2d.ray module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="ladybug_geometry.geometry2d.html#module-ladybug_geometry.geometry2d">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ladybug_geometry.geometry3d.html">ladybug_geometry.geometry3d package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ladybug_geometry.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ladybug_geometry.html#module-ladybug_geometry">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-8 content" role="main">
+      
+  <div class="section" id="module-ladybug_geometry.geometry2d.polyline">
+<span id="ladybug-geometry-geometry2d-polyline-module"></span><h1>ladybug_geometry.geometry2d.polyline module<a class="headerlink" href="#module-ladybug_geometry.geometry2d.polyline" title="Permalink to this headline">¶</a></h1>
+<p>2D Polyline</p>
+<dl class="class">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D">
+<em class="property">class </em><code class="descclassname">ladybug_geometry.geometry2d.polyline.</code><code class="descname">Polyline2D</code><span class="sig-paren">(</span><em>vertices</em>, <em>interpolated=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_geometry/geometry2d/polyline.html#Polyline2D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ladybug_geometry.geometry2d._2d.Base2DIn2D</span></code></p>
+<p>2D polyline object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>vertices</strong> – A list of Point2D objects representing the vertices of the polyline.</li>
+<li><strong>interpolated</strong> – Boolean to note whether the polyline should be interpolated
+between the input vertices when it is translated to other interfaces.
+Note that this property has no bearing on the geometric calculations
+performed by this library and is only present in order to assist with
+display/translation.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Properties:</dt>
+<dd><ul class="first last simple">
+<li>vertices</li>
+<li>segments</li>
+<li>min</li>
+<li>max</li>
+<li>center</li>
+<li>length</li>
+<li>is_self_intersecting</li>
+<li>interpolated</li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.ToString">
+<code class="descname">ToString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.ToString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overwrite .NET ToString.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.duplicate">
+<code class="descname">duplicate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.duplicate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a copy of this object.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.from_array">
+<em class="property">classmethod </em><code class="descname">from_array</code><span class="sig-paren">(</span><em>point_array</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_geometry/geometry2d/polyline.html#Polyline2D.from_array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.from_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Polyline2D from a nested array of vertex coordinates.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>point_array</strong> – Nested array of point arrays.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.from_dict">
+<em class="property">classmethod </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_geometry/geometry2d/polyline.html#Polyline2D.from_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Polyline2D from a dictionary.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> – A python dictionary in the following format.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Polyline2D&quot;</span><span class="p">,</span>
+<span class="s2">&quot;vertices&quot;</span><span class="p">:</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.from_polygon">
+<em class="property">classmethod </em><code class="descname">from_polygon</code><span class="sig-paren">(</span><em>polygon</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_geometry/geometry2d/polyline.html#Polyline2D.from_polygon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.from_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a closed Polyline2D from a Polygon2D.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>polygon</strong> – A Polygon2D object to be converted to a Polyline2D.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.intersect_line_infinite">
+<code class="descname">intersect_line_infinite</code><span class="sig-paren">(</span><em>ray</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_geometry/geometry2d/polyline.html#Polyline2D.intersect_line_infinite"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.intersect_line_infinite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the intersections between this polyline and a Ray2D extended infintiely.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ray</strong> – A Ray2D or to intersect. This will be extended in both
+directions infinitely for the intersection.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list with Point2D objects for the intersections.
+List will be empty if no intersection exists.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.intersect_line_ray">
+<code class="descname">intersect_line_ray</code><span class="sig-paren">(</span><em>line_ray</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_geometry/geometry2d/polyline.html#Polyline2D.intersect_line_ray"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.intersect_line_ray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the intersections between this polyline and a Ray2D or LineSegment2D.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>line_ray</strong> – A LineSegment2D or Ray2D or to intersect.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list with Point2D objects for the intersections.
+List will be empty if no intersection exists.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.is_closed">
+<code class="descname">is_closed</code><span class="sig-paren">(</span><em>tolerance</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_geometry/geometry2d/polyline.html#Polyline2D.is_closed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.is_closed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test whether this polyline is closed to within the tolerance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tolerance</strong> – The minimum difference between vertices below which vertices
+are considered the same.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.join_segments">
+<em class="property">static </em><code class="descname">join_segments</code><span class="sig-paren">(</span><em>segments</em>, <em>tolerance</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_geometry/geometry2d/polyline.html#Polyline2D.join_segments"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.join_segments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an array of Polyline2Ds from a list of LineSegment2Ds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>segments</strong> – An array of LineSegment2D objects.</li>
+<li><strong>tolerance</strong> – The minimum difference in X, Y, and Z values at which Point2Ds
+are considred equivalent. Segments with points that match within the
+tolerance will be joined.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">An array of Polyline2D and LineSegment2D objects assembled from the
+joined segments.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.move">
+<code class="descname">move</code><span class="sig-paren">(</span><em>moving_vec</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_geometry/geometry2d/polyline.html#Polyline2D.move"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a polyline that has been moved along a vector.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>moving_vec</strong> – A Vector2D with the direction and distance to move the polyline.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.reflect">
+<code class="descname">reflect</code><span class="sig-paren">(</span><em>normal</em>, <em>origin</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_geometry/geometry2d/polyline.html#Polyline2D.reflect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.reflect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a polyline reflected across a plane with the input normal and origin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>normal</strong> – A Vector2D representing the normal vector for the plane across
+which the polyline will be reflected. THIS VECTOR MUST BE NORMALIZED.</li>
+<li><strong>origin</strong> – A Point2D representing the origin from which to reflect.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.remove_colinear_vertices">
+<code class="descname">remove_colinear_vertices</code><span class="sig-paren">(</span><em>tolerance</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_geometry/geometry2d/polyline.html#Polyline2D.remove_colinear_vertices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.remove_colinear_vertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a version of this polyline without colinear or duplicate vertices.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tolerance</strong> – The minimum distance that a vertex can be from a line
+before it is considered colinear.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.reverse">
+<code class="descname">reverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_geometry/geometry2d/polyline.html#Polyline2D.reverse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.reverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a copy of this polyline where the vertices are reversed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.rotate">
+<code class="descname">rotate</code><span class="sig-paren">(</span><em>angle</em>, <em>origin</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_geometry/geometry2d/polyline.html#Polyline2D.rotate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.rotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a polyline that is rotated counterclockwise by a certain angle.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>angle</strong> – An angle for rotation in radians.</li>
+<li><strong>origin</strong> – A Point2D for the origin around which the point will be rotated.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.scale">
+<code class="descname">scale</code><span class="sig-paren">(</span><em>factor</em>, <em>origin=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_geometry/geometry2d/polyline.html#Polyline2D.scale"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale a polyline by a factor from an origin point.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>factor</strong> – A number representing how much the polyline should be scaled.</li>
+<li><strong>origin</strong> – A Point2D representing the origin from which to scale.
+If None, it will be scaled from the World origin (0, 0).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.to_array">
+<code class="descname">to_array</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_geometry/geometry2d/polyline.html#Polyline2D.to_array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.to_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of lists where each sub-list represents a Point2D vertex.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_geometry/geometry2d/polyline.html#Polyline2D.to_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Polyline2D as a dictionary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.to_polygon">
+<code class="descname">to_polygon</code><span class="sig-paren">(</span><em>tolerance</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_geometry/geometry2d/polyline.html#Polyline2D.to_polygon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.to_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a Polygon2D derived from this object.</p>
+<p>If the polyline is closed to within the tolerance, the segments of this
+polyline and the resulting polygon will match. Otherwise, an extra
+LineSegment2D will be added to connect the start and end of the polyline.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tolerance</strong> – The minimum difference between vertices below which vertices
+are considered the same.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.center">
+<code class="descname">center</code><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.center" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Point2D for the center of the bounding rectangle around this geometry.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.interpolated">
+<code class="descname">interpolated</code><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.interpolated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Boolean noting whether the polyline should be interpolated upon translation.</p>
+<p>Note that this property has no bearing on the geometric calculations
+performed by this library and is only present in order to assist with
+display/translation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.is_self_intersecting">
+<code class="descname">is_self_intersecting</code><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.is_self_intersecting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Boolean noting whether the polyline has self-intersecting segments.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.length">
+<code class="descname">length</code><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.length" title="Permalink to this definition">¶</a></dt>
+<dd><p>The length of the polyline.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.max">
+<code class="descname">max</code><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.max" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Point2D for the maximum bounding rectangle vertex around this geometry.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.min">
+<code class="descname">min</code><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.min" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Point2D for the minimum bounding rectangle vertex around this geometry.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.segments">
+<code class="descname">segments</code><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.segments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple of all line segments in the polyline.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ladybug_geometry.geometry2d.polyline.Polyline2D.vertices">
+<code class="descname">vertices</code><a class="headerlink" href="#ladybug_geometry.geometry2d.polyline.Polyline2D.vertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple of all vertices in this object.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, Ladybug Tools.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
